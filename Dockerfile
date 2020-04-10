@@ -30,7 +30,7 @@ RUN	dnf -y clean all && \
 	dnf -y update && \
 	dnf -y module reset php && \
 	dnf -y module enable php:remi-${PHP_VERSION} && \
-	dnf -y install --setopt=tsflags=nodocs php php-fpm php-phpiredis php-pecl-memcache php-pecl-memcached php-mysqlnd && \
+	dnf -y install --setopt=tsflags=nodocs php php-fpm php-pecl-redis5 php-pecl-memcache php-pecl-memcached php-mysqlnd && \
 	dnf -y clean all 
 
 COPY ./php-fpm.conf /etc/php-fpm.conf
