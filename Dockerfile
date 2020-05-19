@@ -36,6 +36,8 @@ RUN	dnf -y clean all && \
 COPY ./php-fpm.conf /etc/php-fpm.conf
 COPY ./global.conf /etc/php-fpm.d/global.conf
 COPY ./www.conf /etc/php-fpm.d/www.conf
+
+RUN chown php-fpm:php-fpm /var/lib/php/session/
 	
 EXPOSE 9000/tcp
 
