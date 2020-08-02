@@ -31,7 +31,7 @@ RUN	dnf -y clean all && \
 	dnf -y module reset php && \
 	dnf -y module enable php:remi-${PHP_VERSION} && \
 	dnf -y install --setopt=tsflags=nodocs php php-fpm php-pecl-redis5 php-pecl-memcache php-pecl-memcached php-mysqlnd \
-		php-bcmath php-gd php-mbstring php-pecl-apcu php-pecl-imagick php-pecl-sphinx php-process php-xml ImageMagick\
+		php-bcmath php-gd php-mbstring php-pecl-apcu php-pecl-imagick php-pecl-sphinx php-process php-xml ImageMagick cronie\
 		 && \
 	dnf -y clean all 
 
