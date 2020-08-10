@@ -22,8 +22,7 @@ RUN	dnf -y clean all && \
     dnf -y --nodoc --setopt=install_weak_deps=false update && \
     dnf -y erase acl bind-export-libs cpio dhcp-client dhcp-common dhcp-libs \
         ethtool findutils hostname ipcalc iproute iputils kexec-tools \
-        less lzo pkgconf pkgconf-m4 shadow-utils snappy squashfs-tools \
-        vim-minimal xz && \
+        lzo pkgconf pkgconf-m4 shadow-utils snappy squashfs-tools xz && \
 	dnf -y autoremove && \
 	dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && \
 	dnf -y install https://rpms.remirepo.net/enterprise/remi-release-8.rpm && \ 
@@ -31,7 +30,8 @@ RUN	dnf -y clean all && \
 	dnf -y module reset php && \
 	dnf -y module enable php:remi-${PHP_VERSION} && \
 	dnf -y install --setopt=tsflags=nodocs php php-fpm php-pecl-redis5 php-pecl-memcache php-pecl-memcached php-mysqlnd \
-		php-bcmath php-gd php-mbstring php-pecl-apcu php-pecl-imagick php-pecl-sphinx php-process php-xml php-pecl-zip ImageMagick cronie && \
+		php-bcmath php-gd php-mbstring php-pecl-apcu php-pecl-imagick php-pecl-sphinx php-process php-xml php-pecl-zip ImageMagick cronie \
+		vim-enchanced && \
 	dnf -y install --nogpgcheck https://download1.rpmfusion.org/free/el/rpmfusion-free-release-8.noarch.rpm \
 		https://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-8.noarch.rpm && \
 	dnf -y install 'dnf-command(config-manager)' && \
