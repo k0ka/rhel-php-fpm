@@ -17,6 +17,8 @@ LABEL maintainer="admin@idwrx.com" \
 # add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
 RUN groupadd -r -g $GROUP_ID php-fpm && useradd -r -g php-fpm -u $USER_ID php-fpm
 
+# remove cache
+ADD "https://www.random.org/cgi-bin/randbyte?nbytes=10&format=h" skipcache
 
 RUN	dnf -y clean all && \
     dnf -y --nodoc --setopt=install_weak_deps=false update && \
