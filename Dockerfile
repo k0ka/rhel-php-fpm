@@ -36,7 +36,7 @@ RUN	dnf -y clean all && \
 	dnf -y install --nogpgcheck https://download1.rpmfusion.org/free/el/rpmfusion-free-release-8.noarch.rpm \
 		https://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-8.noarch.rpm && \
 	dnf -y install 'dnf-command(config-manager)' && \
-	dnf -y config-manager --enable PowerTools && \
+	dnf -y config-manager --enable powertools && \
 	dnf -y install --setopt=tsflags=nodocs ffmpeg
 
 RUN	dnf -y clean all 
