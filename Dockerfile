@@ -1,18 +1,17 @@
-FROM centos:8 
+FROM rockylinux:8
 
 ENV USER_ID=900 \
 	GROUP_ID=900 \
 	PHP_VERSION="7.4" \
-	SUMMARY="Platform for running Remi's php-fpm ${PHP_VERSION} on CentOS 8" \
+	SUMMARY="Platform for running Remi's php-fpm ${PHP_VERSION} on Rocky Linux 8 (RHEL Compatible)" \
 	DESCRIPTION="PHP-FPM (FastCGI Process Manager) is an alternative PHP FastCGI \
 		implementation with some additional features useful for sites of any size, \
 		especially busier sites."
 
-
 LABEL maintainer="admin@idwrx.com" \
 	summary="${SUMMARY}" \
 	description="${DESCRIPTION}" \
-	name="idwrx/php-fpm"
+	name="k0ka/rhel-php-fpm"
 
 # add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
 RUN groupadd -r -g $GROUP_ID php-fpm && useradd -r -g php-fpm -u $USER_ID php-fpm
@@ -27,7 +26,7 @@ RUN	dnf -y clean all && \
         lzo pkgconf pkgconf-m4 shadow-utils snappy squashfs-tools xz && \
 	dnf -y autoremove && \
 	dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && \
-	dnf -y install https://rpms.remirepo.net/enterprise/remi-release-8.rpm && \ 
+	dnf -y install https://rpms.remirepo.net/enterprise/remi-release-8.rpm && \
 	dnf -y update && \
 	dnf -y module reset php && \
 	dnf -y module enable php:remi-${PHP_VERSION} && \
