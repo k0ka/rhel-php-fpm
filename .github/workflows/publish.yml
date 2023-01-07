@@ -7,7 +7,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: ['7.4']
+        php: [7.4]
+        include:
+          - latest: false
+          - latest: true
+            php: 7.4
 
     runs-on: ubuntu-latest
 
@@ -19,7 +23,8 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: ghcr.io/k0ka/rhel-php-fpm
+          images: |
+            ghcr.io/k0ka/rhel-php-fpm
           tags: |
             type=raw,value=${{ matrix.php }}
             type=raw,value=latest,enable=${{ matrix.latest }}
