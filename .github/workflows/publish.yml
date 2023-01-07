@@ -36,5 +36,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/k0ka/rhel-php-fpm:latest
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
           build-args: PHP_VERSION=${{ matrix.php }}
