@@ -20,9 +20,9 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: ghcr.io/k0ka/rhel-php-fpm
-        tags: |
-          type=raw,value=${{ matrix.php }}
-          type=raw,value=latest,enable=${{ matrix.latest }}
+          tags: |
+            type=raw,value=${{ matrix.php }}
+            type=raw,value=latest,enable=${{ matrix.latest }}
 
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v1
