@@ -1,8 +1,10 @@
 FROM rockylinux:8
 
+# php version should be like "7.4"
+ARG PHP_VERSION
+
 ENV USER_ID=900 \
 	GROUP_ID=900 \
-	PHP_VERSION="7.4" \
 	SUMMARY="Platform for running Remi's php-fpm ${PHP_VERSION} on Rocky Linux 8 (RHEL Compatible)" \
 	DESCRIPTION="PHP-FPM (FastCGI Process Manager) is an alternative PHP FastCGI \
 		implementation with some additional features useful for sites of any size, \

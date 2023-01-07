@@ -4,6 +4,10 @@ on: [push]
 
 jobs:
   publish-image:
+    strategy:
+      matrix:
+        php: ['7.4']
+
     runs-on: ubuntu-latest
 
     steps:
@@ -18,5 +22,7 @@ jobs:
 
       - name: Build the Docker image
         run: |
-          docker build . --tag ghcr.io/k0ka/rhel-php-fpm:latest
+          docker build --build-arg PHP_VERSION --tag ghcr.io/k0ka/rhel-php-fpm:latest .
           docker push ghcr.io/k0ka/rhel-php-fpm:latest
+        with:
+          PHP_VERSION: ${{ matrix.php }}
