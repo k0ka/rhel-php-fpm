@@ -25,7 +25,7 @@ RUN	dnf -y clean all  \
     && dnf -y --nodoc --setopt=install_weak_deps=false update  \
     && dnf -y erase acl bind-export-libs cpio dhcp-client dhcp-common dhcp-libs \
         ethtool findutils hostname ipcalc iproute iputils kexec-tools \
-        lzo pkgconf pkgconf-m4 shadow-utils snappy squashfs-tools xz  \
+        lzo pkgconf pkgconf-m4 procps shadow-utils snappy squashfs-tools xz  \
     && dnf -y autoremove  \
     && dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm  \
     && dnf -y install https://rpms.remirepo.net/enterprise/remi-release-8.rpm  \
