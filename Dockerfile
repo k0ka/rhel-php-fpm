@@ -31,11 +31,10 @@ RUN	dnf -y clean all  \
     && dnf -y install https://rpms.remirepo.net/enterprise/remi-release-8.rpm \
     && dnf -y update \
     && dnf -y module reset php \
-    && dnf -y install --enablerepo=remi ImageMagick \
     && dnf -y module enable php:remi-${PHP_VERSION} \
     && dnf -y install --setopt=tsflags=nodocs php php-fpm php-pecl-redis5 php-pecl-memcache php-pecl-memcached php-mysqlnd php-intl \
-		php-bcmath php-gd php-mbstring php-pecl-apcu php-pecl-imagick php-process php-xml php-pecl-zip php-pecl-xdebug \
-		cronie vim-enhanced \
+		php-bcmath php-gd php-mbstring php-pecl-apcu php-pecl-imagick-im6 php-process php-xml php-pecl-zip php-pecl-xdebug \
+		ImageMagick cronie vim-enhanced \
     && dnf -y install --nogpgcheck https://download1.rpmfusion.org/free/el/rpmfusion-free-release-8.noarch.rpm \
 		https://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-8.noarch.rpm  \
     && dnf -y install 'dnf-command(config-manager)' \
