@@ -33,10 +33,11 @@ RUN	dnf -y clean all  \
     && dnf -y module reset php \
     && dnf -y module enable php:remi-${PHP_VERSION} \
     && dnf -y module enable composer:2 \
-    && dnf -y install --setopt=tsflags=nodocs php php-fpm php-pecl-redis6 php-pecl-memcache php-pecl-memcached php-mysqlnd php-intl \
+    && dnf -y install --setopt=tsflags=nodocs --enablerepo=remi \
+    		php php-fpm php-pecl-redis6 php-pecl-memcache php-pecl-memcached php-mysqlnd php-intl \
 		php-bcmath php-gd php-mbstring php-pecl-apcu php-pecl-imagick-im6 php-process php-xml php-pecl-zip php-pecl-xdebug \
         composer \
-		ImageMagick cronie vim-enhanced \
+		ImageMagick cronie vim-enhanced gifsicle \
     && dnf -y install --nogpgcheck https://download1.rpmfusion.org/free/el/rpmfusion-free-release-8.noarch.rpm \
 		https://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-8.noarch.rpm  \
     && dnf -y install 'dnf-command(config-manager)' \
