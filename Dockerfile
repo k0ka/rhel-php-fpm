@@ -42,7 +42,8 @@ RUN	dnf -y clean all  \
 		https://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-8.noarch.rpm  \
     && dnf -y install 'dnf-command(config-manager)' \
     && dnf -y config-manager --enable powertools \
-    && dnf -y install --setopt=tsflags=nodocs ffmpeg
+    && dnf -y install --setopt=tsflags=nodocs ffmpeg \
+    && mv /etc/php.d/15-xdebug.ini /etc/php.d/15-xdebug.ini.disabled
 
 RUN	dnf -y clean all
 
